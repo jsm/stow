@@ -158,6 +158,9 @@ func (c *container) Put(name string, r io.Reader, size int64, metadata map[strin
 
 // Region returns a string representing the region/availability zone of the container.
 func (c *container) Region() string {
+	if c.region == "" {
+		return "us-east-1"
+	}
 	return c.region
 }
 
